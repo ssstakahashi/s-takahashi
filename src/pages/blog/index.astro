@@ -2,81 +2,106 @@
 import MainLayout from '../../layouts/main.astro';
 
 const blogPosts = [
-  {
-    title: '初めてのAstro',
-    description: 'Astroの基本と始め方について解説します。',
-    link: '/blog/first-astro',
-    image: '/images/astro.jpg',
-    category: 'category1'
-  },
-  {
-    title: 'TailwindCSSの使い方',
-    description: 'TailwindCSSを使ってスタイリッシュなデザインを作成する方法。',
-    link: '/blog/tailwindcss-guide',
-    image: '/images/tailwind.jpg',
-    category: 'category2'
-  },
-  {
-    title: 'JavaScriptの最新機能',
-    description: '最新のJavaScript機能とその使い方を紹介します。',
-    link: '/blog/js-new-features',
-    image: '/images/javascript.jpg',
-    category: 'category3'
-  },{
-    title: 'Markdownページ',
-    description: 'Markdownページの使い方を紹介します。',
-    link: '/blog/markdown-page',
-    image: '/images/markdown.jpg',
-    category: 'category4'
-    },{
-    title: 'Markdownページ',
-    description: 'Markdownページの使い方を紹介します。',
-    link: '/blog/markdown-page',
-    image: '/images/markdown.jpg',
-    category: 'category4'       
-  },{
-    title: 'サンプル',
-    description: 'Markdownページの使い方を紹介します。',
-    link: '/blog/posts/post_01',
-    image: '/images/markdown.jpg',
-    category: 'category4'
-    },{
-    title: 'Markdownページ',
-    description: 'Markdownページの使い方を紹介します。',
-    link: '/blog/markdown-page',
-    image: '/images/markdown.jpg',
-    category: 'category4'
-    }
+    {
+        title: '初めてのAstro',
+        description: 'Astroの基本と始め方について解説します。',
+        link: '/blog/posts/post_01',
+
+        image: 'https://ssstakahashi-storage.studiofoods.net/logo/astro-logo-light-gradient.png',
+        category: 'category1',
+        backgroundColor: '#000000',
+    },
+    {
+        title: 'TailwindCSSの使い方',
+        description: 'TailwindCSSを使ってスタイリッシュなデザインを作成する方法。',
+        link: '/blog/tailwindcss-guide',
+        image: '/images/tailwind.jpg',
+        category: 'category2',
+    },
+    {
+        title: 'JavaScriptの最新機能',
+        description: '最新のJavaScript機能とその使い方を紹介します。',
+        link: '/blog/js-new-features',
+        image: '/images/javascript.jpg',
+        category: 'category3',
+    },
+    {
+        title: 'Markdownページ',
+        description: 'Markdownページの使い方を紹介します。',
+        link: '/blog/markdown-page',
+        image: '/images/markdown.jpg',
+        category: 'category4',
+    },
+    {
+        title: 'Markdownページ',
+        description: 'Markdownページの使い方を紹介します。',
+        link: '/blog/markdown-page',
+        image: '/images/markdown.jpg',
+        category: 'category4',
+    },
+    {
+        title: 'サンプル',
+        description: 'Markdownページの使い方を紹介します。',
+        link: '/blog/posts/post_01',
+        image: '/images/markdown.jpg',
+        category: 'category4',
+    },
+    {
+        title: 'Markdownページ',
+        description: 'Markdownページの使い方を紹介します。',
+        link: '/blog/markdown-page',
+        image: '/images/markdown.jpg',
+        category: 'category4',
+    },
 ];
 ---
 
 <MainLayout>
-    <h1>ブログ</h1>
-    <main>
-        <div class="tabs">
-            <button class="tab" data-tab="all">すべて</button>
-            <button class="tab" data-tab="category1">経営・システム</button>
-            <button class="tab" data-tab="category2">ソフトウェア開発</button>
-            <button class="tab" data-tab="category3">地域・政治</button>
-            <button class="tab" data-tab="category4">税金</button>
+    <div class="container mx-auto pt-24">
+        <h1>ブログ</h1>
+        <div class="tabs flex space-x-4">
+            <button class="tab px-4 py-2 border rounded hover:bg-gray-200 focus:bg-gray-300" data-tab="all"
+                >すべて</button
+            >
+            <button class="tab px-4 py-2 border rounded hover:bg-gray-200 focus:bg-gray-300" data-tab="category1"
+                >経営・システム</button
+            >
+            <button class="tab px-4 py-2 border rounded hover:bg-gray-200 focus:bg-gray-300" data-tab="category2"
+                >ソフトウェア開発</button
+            >
+            <button class="tab px-4 py-2 border rounded hover:bg-gray-200 focus:bg-gray-300" data-tab="category3"
+                >地域・政治</button
+            >
+            <button class="tab px-4 py-2 border rounded hover:bg-gray-200 focus:bg-gray-300" data-tab="category4"
+                >税金</button
+            >
         </div>
-        <section class="blog-list grid grid-cols-1 md:grid-cols-2 gap-4">
+        <section class="blog-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {
-            blogPosts.map((post) => (
-                <article class="blog-post border rounded-lg shadow-lg overflow-hidden" data-category={post.category}>
-                    <img src={post.image} alt={post.title} class="w-full h-48 object-cover"/>
-                    <div class="p-4">
-                        <h2 class="text-xl font-bold mb-2">
-                            <a href={post.link} class="text-blue-500 hover:underline">{post.title}</a>
-                        </h2>
-                        <p class="text-gray-700">{post.description}</p>
-                    </div>
-                </article>
-            ))
+                blogPosts.map((post) => (
+                    <article
+                        class="blog-post border rounded-lg shadow-lg overflow-hidden"
+                        data-category={post.category}
+                        style={{ backgroundColor: post.backgroundColor }}
+                    >
+                        <img src={post.image} alt={post.title} class="w-full h-48 object-contain" />
+                        <div
+                            class="p-4 h-full"
+                            style="background-image: url('https://ssstakahashi-storage.studiofoods.net/image/background/black_00031.jpg'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.5);"
+                        >
+                            <h2 class="text-xl font-bold mb-2 text-white">
+                                <a href={post.link} class="text-white hover:underline">
+                                    {post.title}
+                                </a>
+                            </h2>
+                            <p class="text-white">{post.description}</p>
+                        </div>
+                    </article>
+                ))
             }
         </section>
         <a href="/" class="p-4 underline">ホームに戻る</a>
-    </main>
+    </div>
 </MainLayout>
 
 <script>
@@ -85,10 +110,10 @@ const blogPosts = [
         const blogList = document.querySelector('.blog-list');
         const blogPosts = document.querySelectorAll('.blog-post');
 
-        tabs.forEach(tab => {
+        tabs.forEach((tab) => {
             tab.addEventListener('click', () => {
                 const tabName = tab.getAttribute('data-tab');
-                blogPosts.forEach(post => {
+                blogPosts.forEach((post) => {
                     const postElement = post as HTMLElement; // ここで型を明示的に指定
                     if (tabName === 'all' || postElement.getAttribute('data-category') === tabName) {
                         postElement.style.display = 'block';

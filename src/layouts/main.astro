@@ -1,32 +1,48 @@
 ---
 const currentYear = new Date().getFullYear();
 import '@fontsource/noto-sans-jp';
+import logo from '../assets/Mierun_forWhite.png';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>Astro + TailwindCSS</title>
-		<style>
-			body {
-				font-family: 'Noto Sans JP', sans-serif;
-			}
-		</style>
-	</head>
-	<body>
-		<nav class="bg-gray-800 p-4">
-    		<ul class="flex space-x-4">
-			<li><a href="/" class="text-white hover:text-gray-400">ホーム</a></li>
-			<li><a href="/profile/" class="text-white hover:text-gray-400">プロフィール</a></li>
-			<li><a href="/blog/" class="text-white hover:text-gray-400">ブログ</a></li>
-    	</ul>
-    </nav>
-    <slot />
-	</body>
-	<footer>
-    <p>&copy; {currentYear} ssstakahashi</p>
-	</footer>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>Astro + TailwindCSS</title>
+        <style>
+            body {
+                font-family: 'Noto Sans JP', sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div
+            class="w-full min-h-screen relative bg-opacity-50"
+            style="background-image: url('https://ssstakahashi-storage.studiofoods.net/image/background/background_white.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+        >
+            <div class="container flex justify-center">
+                <nav
+                    class="bg-black p-4 fixed top-6 left-1/2 transform -translate-x-1/2 w-8/12 z-50 flex justify-center rounded-full"
+                    style="background-image: url('https://ssstakahashi-storage.studiofoods.net/image/background/black_00107.jpg'); background-size: cover; background-position: center; opacity: 0.9;"
+                >
+                    <ul class="flex space-x-4 max-w-screen-lg w-full justify-center items-center">
+                        <li class="absolute left-4">
+                            <img src="/src/assets/Mierun_forWhite.png" alt="アイコン" class="h-6 w-8" />
+                        </li>
+                        <li><a href="/" class="text-white hover:text-gray-400">ホーム</a></li>
+                        <li><a href="/profile/" class="text-white hover:text-gray-400">プロフィール</a></li>
+                        <li><a href="/blog/" class="text-white hover:text-gray-400">ブログ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <slot />
+            </div>
+        </div>
+    </body>
+    <footer class="flex justify-center">
+        <p>&copy; {currentYear} ssstakahashi</p>
+    </footer>
 </html>
