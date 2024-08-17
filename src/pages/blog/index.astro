@@ -89,10 +89,11 @@ const blogPosts = [
             tab.addEventListener('click', () => {
                 const tabName = tab.getAttribute('data-tab');
                 blogPosts.forEach(post => {
-                    if (tabName === 'all' || post.getAttribute('data-category') === tabName) {
-                        post.style.display = 'block';
+                    const postElement = post as HTMLElement; // ここで型を明示的に指定
+                    if (tabName === 'all' || postElement.getAttribute('data-category') === tabName) {
+                        postElement.style.display = 'block';
                     } else {
-                        post.style.display = 'none';
+                        postElement.style.display = 'none';
                     }
                 });
             });
