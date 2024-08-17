@@ -1,0 +1,42 @@
+---
+import MainLayout from '../../layouts/main.astro';
+
+const profile = {
+  name: '山田 太郎',
+  title: 'ソフトウェアエンジニア',
+  description: '10年以上の経験を持つフルスタック開発者。最新の技術を駆使して、革新的なソリューションを提供します。',
+  image: '/assets/profile.jpg',
+  hello: `私は、東京での仕事が多いながらも、地方の魅力に惹かれ、二拠点生活を送っています。
+          地方での生活は、都会の喧騒を忘れさせてくれる穏やかな時間と、豊かな自然の中で心身のリフレッシュをさせてくれます。
+          仕事では〇〇の業務に従事しており、日々、自己成長を目指して励んでいます。一方で、地方での生活では、地域の方々との交流や地元の文化に触れることを大切にしています。
+          二拠点生活を通して、それぞれの土地の良さを再発見し、より豊かな人生を送りたいと考えています。
+          どうぞよろしくお願いいたします。`,
+  social: {
+    twitter: 'https://twitter.com/yourprofile',
+    github: 'https://github.com/yourprofile',
+    linkedin: 'https://linkedin.com/in/yourprofile',
+  },
+};
+---
+
+<MainLayout>
+  <h1>山田 太郎</h1>
+  <h2>ソフトウェアエンジニア</h2>
+
+  <main>
+    <section class="profile">
+      <img src={profile.image} alt="プロフィール写真" />
+      <p>{profile.description}</p>
+      <p>{profile.hello}</p>
+    </section>
+    <section class="social-links">
+      <h3>フォローする</h3>
+      <ul>
+        <li><a href={profile.social.twitter} target="_blank">Twitter</a></li>
+        <li><a href={profile.social.github} target="_blank">GitHub</a></li>
+        <li><a href={profile.social.linkedin} target="_blank">LinkedIn</a></li>
+      </ul>
+    </section>
+    <a href="/" class="p-4 underline">Home</a>
+  </main>
+</MainLayout>

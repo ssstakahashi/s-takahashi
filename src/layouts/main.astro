@@ -1,15 +1,33 @@
 ---
 const { content } = Astro.props;
+const currentYear = new Date().getFullYear();
+import '@fontsource/noto-sans-jp';
 ---
 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ja">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{content.title}</title>
+		<title>Astro + TailwindCSS</title>
+		<style>
+			body {
+				font-family: 'Noto Sans JP', sans-serif;
+			}
+		</style>
 	</head>
 	<body>
-		<slot />
+		<nav class="bg-gray-800 p-4">
+    		<ul class="flex space-x-4">
+			<li><a href="/" class="text-white hover:text-gray-400">ホーム</a></li>
+			<li><a href="/profile/" class="text-white hover:text-gray-400">プロフィール</a></li>
+			<li><a href="/blog/" class="text-white hover:text-gray-400">ブログ</a></li>
+    	</ul>
+    </nav>
+    <slot />
 	</body>
+	<footer>
+    <p>&copy; {currentYear} ssstakahashi</p>
+	</footer>
 </html>
